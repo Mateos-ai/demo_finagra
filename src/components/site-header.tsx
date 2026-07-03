@@ -42,7 +42,7 @@ export function SiteHeader() {
         <div className="flex h-16 items-center justify-between">
           <Logo />
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             {links.map((item) => (
               <SiteLink
                 key={item.href}
@@ -58,7 +58,7 @@ export function SiteHeader() {
             <Button
               asChild
               variant="glow"
-              className="hidden h-9 px-4 text-sm md:inline-flex"
+              className="hidden h-9 px-4 text-sm lg:inline-flex"
             >
               <SiteLink href={cta.href}>{cta.label}</SiteLink>
             </Button>
@@ -68,7 +68,7 @@ export function SiteHeader() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden"
+                  className="lg:hidden"
                   aria-label="Open menu"
                 >
                   <Menu className="size-5" />
