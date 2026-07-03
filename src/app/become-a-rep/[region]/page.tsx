@@ -63,7 +63,8 @@ export default async function BecomeRepRegionPage({
           </div>
 
           <div
-            className="mt-12 overflow-hidden rounded-3xl px-8 py-12 md:px-12"
+            id="model"
+            className="mt-12 scroll-mt-24 overflow-hidden rounded-3xl px-8 py-12 md:px-12"
             style={{
               background:
                 "linear-gradient(150deg, var(--green-800) 0%, var(--green-900) 100%)",
@@ -80,7 +81,7 @@ export default async function BecomeRepRegionPage({
         </Container>
       </section>
 
-      <Section>
+      <Section id="receive">
         <Container className="max-w-4xl">
           <SectionHeading
             eyebrow="What representatives receive"

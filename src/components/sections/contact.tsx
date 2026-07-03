@@ -75,7 +75,7 @@ export function Contact({ showInterest = true }: { showInterest?: boolean }) {
                   aria-label="Email address"
                   className="h-11 flex-1"
                 />
-                <Button type="submit" className="h-11 rounded-xl px-6">
+                <Button type="submit" className="btn-glow h-11 rounded-xl px-6">
                   Send
                   <ArrowRight className="size-4" />
                 </Button>

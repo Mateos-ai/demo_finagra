@@ -10,12 +10,22 @@ export const site = {
 } as const;
 
 export const nav = [
-  { label: "Our Solution", href: "#solution" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Who We Serve", href: "#who-we-serve" },
-  { label: "Become a Representative", href: "#become-a-rep" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Our Solution", href: "/#solution" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Who We Serve", href: "/#who-we-serve" },
+  { label: "Become a Representative", href: "/#become-a-rep" },
+  { label: "FAQ", href: "/#faq" },
 ] as const;
+
+/** Contextual nav for the /become-a-rep/[region] pages. */
+export const repNav = {
+  links: [
+    { label: "The Model", href: "#model" },
+    { label: "What You Receive", href: "#receive" },
+    { label: "FAQ", href: "/#faq" },
+  ],
+  cta: { label: "Apply now", href: "#contact" },
+} as const;
 
 export const hero = {
   title: "Building the future of",

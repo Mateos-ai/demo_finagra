@@ -206,6 +206,38 @@
   }
   .dark .eyebrow { color: var(--green-300); }
 
+  /* Glowing primary CTA — gradient with a lime edge (from the logo) + glow */
+  .btn-glow {
+    background: linear-gradient(
+      135deg,
+      var(--green-700) 0%,
+      var(--green-600) 45%,
+      oklch(0.66 0.16 135) 100%
+    );
+    background-size: 150% 150%;
+    background-position: 0% 0%;
+    border: none;
+    color: #fff;
+    box-shadow:
+      0 1px 2px rgba(20, 60, 30, 0.25),
+      0 4px 18px color-mix(in oklch, var(--green-500) 40%, transparent);
+    transition:
+      box-shadow 0.25s ease,
+      background-position 0.35s ease,
+      transform 0.15s ease;
+  }
+  .btn-glow:hover {
+    background-position: 100% 100%;
+    box-shadow:
+      0 1px 2px rgba(20, 60, 30, 0.25),
+      0 6px 28px color-mix(in oklch, var(--green-500) 60%, transparent),
+      0 0 0 1px color-mix(in oklch, var(--lime, oklch(0.85 0.18 122)) 35%, transparent);
+    transform: translateY(-1px);
+  }
+  .btn-glow:active {
+    transform: translateY(0);
+  }
+
   /* Scroll reveal — only hides content once JS has confirmed it will reveal */
   .reveal-ready [data-reveal] {
     opacity: 0;

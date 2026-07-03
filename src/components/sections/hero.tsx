@@ -18,7 +18,7 @@ export function Hero() {
             {hero.subtitle}
           </p>
           <div className="mt-9">
-            <Button asChild className="h-12 rounded-xl px-8 text-base">
+            <Button asChild className="btn-glow h-12 rounded-xl px-8 text-base">
               <Link href={hero.primaryCta.href}>
                 {hero.primaryCta.label}
                 <ArrowRight className="size-4" />
