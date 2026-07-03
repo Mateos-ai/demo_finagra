@@ -10,15 +10,35 @@ export function Hero() {
     <section className="relative overflow-hidden bg-field-soft">
       <Container className="py-16 md:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-[2.6rem] font-bold leading-[1.06] tracking-tight text-foreground sm:text-6xl md:text-[4.2rem]">
-            {hero.title}{" "}
-            <span className="text-green-600">{hero.titleAccent}</span>
+          <p className="eyebrow mb-6 justify-center">{hero.eyebrow}</p>
+          <h1 className="text-[2.9rem] font-bold leading-[1.04] tracking-tight text-foreground sm:text-6xl md:text-[5rem]">
+            {hero.title}
+            <br />
+            <span className="relative inline-block">
+              <span className="accent-serif text-green-700">
+                {hero.titleAccent}
+              </span>
+              <svg
+                className="absolute -bottom-2 left-0 w-full md:-bottom-3"
+                viewBox="0 0 300 12"
+                fill="none"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 9 C 70 3, 230 2.5, 297 6.5"
+                  stroke="var(--lime-400)"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
           </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             {hero.subtitle}
           </p>
           <div className="mt-9">
-            <Button asChild className="btn-glow h-12 rounded-xl px-8 text-base">
+            <Button asChild variant="glow" className="h-12 rounded-full px-8 text-base">
               <Link href={hero.primaryCta.href}>
                 {hero.primaryCta.label}
                 <ArrowRight className="size-4" />

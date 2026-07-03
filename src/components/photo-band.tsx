@@ -68,12 +68,12 @@ export function PhotoBand({
                     className="rounded-2xl border border-white/20 bg-white/10 p-5 text-center backdrop-blur-md md:p-7"
                   >
                     <dt
-                      className="text-3xl font-bold tracking-tight text-white md:text-[2.6rem]"
+                      className="text-3xl font-bold tracking-tight text-lime-300 md:text-[2.6rem]"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {stat.value}
                     </dt>
-                    <dd className="mt-1.5 text-xs leading-snug text-green-50/90 md:text-sm">
+                    <dd className="mt-1.5 text-xs leading-snug text-white/85 md:text-sm">
                       {stat.label}
                     </dd>
                   </div>

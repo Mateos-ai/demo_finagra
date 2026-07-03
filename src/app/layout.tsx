@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -18,6 +18,14 @@ const mono = JetBrains_Mono({
   variable: "--font-mono-brand",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+// Serif italic accent — used for single emphasized words inside headlines.
+const serif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -52,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${satoshi.variable} ${mono.variable} h-full antialiased`}
+      className={`${satoshi.variable} ${mono.variable} ${serif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <RevealObserver />

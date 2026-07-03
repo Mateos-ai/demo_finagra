@@ -28,7 +28,7 @@ export function Faq() {
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="rounded-xl border border-border bg-background px-5 shadow-xs transition-colors last:border-b data-[state=open]:border-green-200"
+              className="rounded-xl border border-border bg-card px-5 shadow-xs transition-colors last:border-b data-[state=open]:border-lime-500/50"
             >
               <AccordionTrigger className="py-5 text-left text-base font-semibold hover:no-underline">
                 {item.q}

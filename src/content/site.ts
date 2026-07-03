@@ -28,10 +28,11 @@ export const repNav = {
 } as const;
 
 export const hero = {
-  title: "Building the future of",
-  titleAccent: "rural agriculture.",
+  eyebrow: "Capital · Technology · People",
+  title: "Small farms.",
+  titleAccent: "Serious business.",
   subtitle:
-    "We give rural representatives and farmers the tools to turn conventional farming into high-yield operations, creating stable income and stronger rural economies.",
+    "We back local representatives with capital, technology, and agronomy to turn underperforming farmland into high-yield operations. Stable income for farmers, stronger rural economies for everyone.",
   primaryCta: { label: "Join Us", href: "#contact" },
   secondaryCta: { label: "scroll to read more", href: "#model" },
 };
@@ -239,8 +240,9 @@ export const faqs = [
 
 export const contact = {
   eyebrow: "Get in touch",
-  title: "Work with us.",
-  body: "Joining our network or partnering with us? Reach out, or sign up for news and updates.",
+  title: "Ready to",
+  titleAccent: "grow?",
+  body: "Whether you want to join our network or partner with us, it starts with one email.",
   interests: [
     "Become a Representative",
     "Partner with us",

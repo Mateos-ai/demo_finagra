@@ -106,7 +106,8 @@ export function BecomeRep() {
             <Button
               key={region.href}
               asChild
-              className="btn-glow h-11 w-full rounded-xl px-6 text-[0.95rem] sm:w-auto"
+              variant="glow"
+              className="h-11 w-full rounded-full px-6 text-[0.95rem] sm:w-auto"
             >
               <Link href={region.href}>
                 Become a Representative in {region.label}

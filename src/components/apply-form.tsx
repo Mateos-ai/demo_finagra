@@ -101,7 +101,7 @@ export function ApplyForm({ roleTitle }: { roleTitle: string }) {
           </button>
         )}
 
-        <Button type="submit" className="btn-glow h-11 w-full rounded-xl text-[0.95rem]">
+        <Button type="submit" variant="glow" className="h-11 w-full rounded-full text-[0.95rem]">
           Submit application
           <ArrowRight className="size-4" />
         </Button>

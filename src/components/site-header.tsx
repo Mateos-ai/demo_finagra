@@ -49,7 +49,8 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <Button
               asChild
-              className="btn-glow hidden h-9 px-4 text-sm md:inline-flex"
+              variant="glow"
+              className="hidden h-9 px-4 text-sm md:inline-flex"
             >
               <Link href={cta.href}>{cta.label}</Link>
             </Button>
@@ -83,7 +84,7 @@ export function SiteHeader() {
                     </SheetClose>
                   ))}
                   <SheetClose asChild>
-                    <Button asChild className="btn-glow mt-3 h-10">
+                    <Button asChild variant="glow" className="mt-3 h-10">
                       <Link href={cta.href}>{cta.label}</Link>
                     </Button>
                   </SheetClose>

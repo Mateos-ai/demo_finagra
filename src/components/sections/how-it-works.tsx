@@ -25,7 +25,7 @@ export function HowItWorks() {
               key={step.step}
               data-reveal
               data-reveal-delay={i}
-              className="relative rounded-2xl border border-border bg-background p-7 pt-8 transition-shadow hover:shadow-lg hover:shadow-green-900/5"
+              className="relative rounded-2xl border border-border bg-card p-7 pt-8 transition-shadow hover:shadow-lg hover:shadow-green-900/5"
             >
               <span className="relative z-10 flex size-11 items-center justify-center rounded-full bg-green-600 font-[family-name:var(--font-mono-brand)] text-sm font-semibold text-white shadow-md shadow-green-900/20">
                 {step.step}
@@ -42,10 +42,10 @@ export function HowItWorks() {
 
         <div
           data-reveal
-          className="mt-10 flex items-center justify-center gap-2.5 rounded-2xl border border-green-200 bg-green-50 px-6 py-5 text-center"
+          className="mt-10 flex items-center justify-center gap-2.5 rounded-full border border-lime-500/40 bg-lime-300/25 px-6 py-5 text-center"
         >
-          <Sparkles className="size-5 shrink-0 text-green-700" />
-          <p className="text-base font-semibold text-green-800 md:text-lg">
+          <Sparkles className="size-5 shrink-0 text-green-800" />
+          <p className="text-base font-semibold text-green-900 md:text-lg">
             {howItWorks.closing}
           </p>
         </div>

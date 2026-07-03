@@ -21,6 +21,11 @@
   --color-green-700: var(--green-700);
   --color-green-800: var(--green-800);
   --color-green-900: var(--green-900);
+  --color-green-950: var(--green-950);
+
+  --color-lime-300: var(--lime-300);
+  --color-lime-400: var(--lime-400);
+  --color-lime-500: var(--lime-500);
 
   --color-earth-50: var(--earth-50);
   --color-earth-100: var(--earth-100);
@@ -87,6 +92,12 @@
   --green-700: oklch(0.45 0.115 147);
   --green-800: oklch(0.38 0.093 148);
   --green-900: oklch(0.30 0.068 150);
+  --green-950: oklch(0.235 0.048 152);
+
+  /* Electric lime — the signature accent, straight from the logo */
+  --lime-300: oklch(0.91 0.17 122);
+  --lime-400: oklch(0.87 0.19 124);
+  --lime-500: oklch(0.8 0.19 127);
 
   --earth-50: oklch(0.965 0.02 70);
   --earth-100: oklch(0.93 0.04 68);
@@ -100,24 +111,24 @@
   --sky-600: oklch(0.60 0.108 234);
   --sky-700: oklch(0.51 0.1 236);
 
-  /* ── shadcn semantic tokens (light) ── */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.21 0.02 155);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.02 155);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.02 155);
-  --primary: var(--green-600);
+  /* ── shadcn semantic tokens (light: warm cream paper + ink green) ── */
+  --background: oklch(0.982 0.007 95);
+  --foreground: oklch(0.23 0.032 152);
+  --card: oklch(0.995 0.004 95);
+  --card-foreground: oklch(0.23 0.032 152);
+  --popover: oklch(0.995 0.004 95);
+  --popover-foreground: oklch(0.23 0.032 152);
+  --primary: var(--green-700);
   --primary-foreground: oklch(0.985 0.01 150);
-  --secondary: oklch(0.968 0.012 150);
+  --secondary: oklch(0.955 0.014 110);
   --secondary-foreground: var(--green-800);
-  --muted: oklch(0.972 0.008 150);
-  --muted-foreground: oklch(0.5 0.02 155);
+  --muted: oklch(0.958 0.012 100);
+  --muted-foreground: oklch(0.48 0.025 150);
   --accent: var(--green-50);
   --accent-foreground: var(--green-800);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.918 0.008 150);
-  --input: oklch(0.918 0.008 150);
+  --border: oklch(0.905 0.014 100);
+  --input: oklch(0.905 0.014 100);
   --ring: var(--green-600);
   --chart-1: var(--green-600);
   --chart-2: var(--sky-600);
@@ -173,6 +184,10 @@
   * {
     @apply border-border outline-ring/50;
   }
+  ::selection {
+    background: var(--lime-400);
+    color: var(--green-950);
+  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "ss01", "cv01";
@@ -206,36 +221,50 @@
   }
   .dark .eyebrow { color: var(--green-300); }
 
-  /* Glowing primary CTA — gradient with a lime edge (from the logo) + glow */
+  /* Signature CTA — electric lime pill that inverts to ink on hover */
+  /* !important beats the shadcn bg-primary utilities on the same element */
   .btn-glow {
-    background: linear-gradient(
-      135deg,
-      var(--green-700) 0%,
-      var(--green-600) 45%,
-      oklch(0.66 0.16 135) 100%
-    );
-    background-size: 150% 150%;
-    background-position: 0% 0%;
+    background: var(--lime-400) !important;
+    color: var(--green-950) !important;
     border: none;
-    color: #fff;
-    box-shadow:
-      0 1px 2px rgba(20, 60, 30, 0.25),
-      0 4px 18px color-mix(in oklch, var(--green-500) 40%, transparent);
+    border-radius: 9999px;
+    font-weight: 600;
+    box-shadow: 0 2px 14px color-mix(in oklch, var(--lime-500) 30%, transparent);
     transition:
+      background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 0.25s ease,
-      background-position 0.35s ease,
-      transform 0.15s ease;
+      transform 0.18s ease;
   }
   .btn-glow:hover {
-    background-position: 100% 100%;
-    box-shadow:
-      0 1px 2px rgba(20, 60, 30, 0.25),
-      0 6px 28px color-mix(in oklch, var(--green-500) 60%, transparent),
-      0 0 0 1px color-mix(in oklch, var(--lime, oklch(0.85 0.18 122)) 35%, transparent);
-    transform: translateY(-1px);
+    background: var(--green-950) !important;
+    color: var(--lime-400) !important;
+    box-shadow: 0 8px 26px color-mix(in oklch, var(--green-900) 40%, transparent);
+    transform: translateY(-2px);
   }
   .btn-glow:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.99);
+  }
+  .btn-glow svg {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-glow:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* Serif italic accent inside bold headlines */
+  .accent-serif {
+    font-family: var(--font-serif), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 1.05em;
+  }
+
+  /* Dark forest section */
+  .section-dark {
+    background: linear-gradient(165deg, var(--green-900) 0%, var(--green-950) 70%);
+    color: oklch(0.97 0.01 110);
   }
 
   /* Scroll reveal — only hides content once JS has confirmed it will reveal */
