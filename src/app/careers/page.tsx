@@ -4,6 +4,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { Container, Section, Eyebrow } from "@/components/section";
 import { Photo } from "@/components/photo";
 import { Button } from "@/components/ui/button";
+import { SiteLink } from "@/components/site-link";
 import { careers } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function CareersPage() {
               {careers.hero.subtitle}
             </p>
             <Button asChild className="mt-8 h-11 rounded-xl px-6">
-              <Link href="#open-roles">See open roles ↓</Link>
+              <SiteLink href="#open-roles">See open roles ↓</SiteLink>
             </Button>
           </div>
           <Photo
@@ -77,12 +78,12 @@ export default function CareersPage() {
           </ul>
           <p className="mt-8 text-muted-foreground">
             Don&apos;t see the right role?{" "}
-            <Link
+            <SiteLink
               href="/#contact"
               className="font-medium text-green-700 underline underline-offset-4 hover:text-green-800"
             >
               Get in touch
-            </Link>
+            </SiteLink>
             . We&apos;re always looking for great people.
           </p>
         </Container>

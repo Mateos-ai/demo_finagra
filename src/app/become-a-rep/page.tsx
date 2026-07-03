@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container, Section, Eyebrow } from "@/components/section";
 import { Button } from "@/components/ui/button";
+import { SiteLink } from "@/components/site-link";
 import { becomeRep, repRegions } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -38,7 +39,9 @@ export default function BecomeRepIndex() {
         </div>
         <div className="mt-10">
           <Button asChild variant="outline" className="h-10 rounded-xl px-5">
-            <Link href="/#become-a-rep">Learn more about the representative model</Link>
+            <SiteLink href="/#become-a-rep">
+              Learn more about the representative model
+            </SiteLink>
           </Button>
         </div>
       </Container>

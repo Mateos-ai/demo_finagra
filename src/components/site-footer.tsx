@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LogoMark } from "@/components/logo";
 import { Container } from "@/components/section";
+import { SiteLink } from "@/components/site-link";
 import { footer, site } from "@/content/site";
 
 export function SiteFooter() {
@@ -37,12 +38,12 @@ export function SiteFooter() {
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
                   <li key={link.href}>
-                    <Link
+                    <SiteLink
                       href={link.href}
                       className="text-sm text-white/65 transition-colors hover:text-lime-300"
                     >
                       {link.label}
-                    </Link>
+                    </SiteLink>
                   </li>
                 ))}
               </ul>

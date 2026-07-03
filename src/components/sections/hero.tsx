@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/section";
 import { Photo } from "@/components/photo";
 import { Button } from "@/components/ui/button";
+import { SiteLink } from "@/components/site-link";
 import { hero } from "@/content/site";
 
 export function Hero() {
@@ -39,10 +39,10 @@ export function Hero() {
           </p>
           <div className="mt-9">
             <Button asChild variant="glow" className="h-12 rounded-full px-8 text-base">
-              <Link href={hero.primaryCta.href}>
+              <SiteLink href={hero.primaryCta.href}>
                 {hero.primaryCta.label}
                 <ArrowRight className="size-4" />
-              </Link>
+              </SiteLink>
             </Button>
           </div>
         </div>
@@ -55,18 +55,6 @@ export function Hero() {
           sizes="(min-width: 1024px) 1100px, 100vw"
           className="mt-14 rounded-3xl shadow-2xl shadow-green-900/10"
         />
-
-        <Link
-          href={hero.secondaryCta.href}
-          className="group mt-12 flex items-center gap-4 text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <span className="h-px flex-1 bg-border" />
-          <span className="flex items-center gap-2 font-[family-name:var(--font-mono-brand)] text-xs font-medium uppercase tracking-[0.14em]">
-            {hero.secondaryCta.label}
-            <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
-          </span>
-          <span className="h-px flex-1 bg-border" />
-        </Link>
       </Container>
     </section>
   );

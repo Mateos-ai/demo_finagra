@@ -34,7 +34,6 @@ export const hero = {
   subtitle:
     "We back local representatives with capital, technology, and agronomy to turn underperforming farmland into high-yield operations. Stable income for farmers, stronger rural economies for everyone.",
   primaryCta: { label: "Join Us", href: "#contact" },
-  secondaryCta: { label: "scroll to read more", href: "#model" },
 };
 
 export const thesis = {
