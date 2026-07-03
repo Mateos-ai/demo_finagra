@@ -25,7 +25,7 @@ export async function generateMetadata({
   const data = getRegion(region);
   if (!data) return { title: "Become a REP" };
   return {
-    title: `Become a REP — ${data.country}`,
+    title: `Become a REP in ${data.country}`,
     description: data.definition,
   };
 }

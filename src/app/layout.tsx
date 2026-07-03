@@ -22,7 +22,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.finagra.com"),
   title: {
-    default: "Finagra — Empower Rural Growth",
+    default: "Finagra · Empower Rural Growth",
     template: "%s · Finagra",
   },
   description:
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.finagra.com",
-    title: "Finagra — Empower Rural Growth",
+    title: "Finagra · Empower Rural Growth",
     description:
       "Combining capital, technology, and local entrepreneurs to turn conventional farming into efficient, high-yield operations.",
     siteName: "Finagra",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Finagra — Empower Rural Growth",
+    title: "Finagra · Empower Rural Growth",
     description:
       "Combining capital, technology, and local entrepreneurs to turn conventional farming into efficient, high-yield operations.",
   },

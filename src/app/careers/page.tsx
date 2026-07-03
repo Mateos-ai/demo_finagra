@@ -79,8 +79,8 @@ export default function CareersPage() {
               className="font-medium text-green-700 underline underline-offset-4 hover:text-green-800"
             >
               Get in touch
-            </Link>{" "}
-            — we&apos;re always looking for great people.
+            </Link>
+            . We&apos;re always looking for great people.
           </p>
         </Container>
       </Section>

@@ -32,7 +32,7 @@ export default function Home() {
         src="/images/field-aerial.jpg"
         alt="Aerial view of a combine harvester working a productive field"
         eyebrow="Empower Rural Growth"
-        statement="Turning underperforming farmland into productive, high-yield operations — led by local entrepreneurs."
+        statement="Turning underperforming farmland into productive, high-yield operations, led by local entrepreneurs."
       />
 
       <BecomeRep />

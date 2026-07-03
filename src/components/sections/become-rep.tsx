@@ -60,7 +60,7 @@ export function BecomeRep() {
                 className="h-11 rounded-xl bg-white px-6 text-[0.95rem] text-green-900 hover:bg-green-50"
               >
                 <Link href={region.href}>
-                  Become a REP — {region.label}
+                  Become a REP in {region.label}
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>

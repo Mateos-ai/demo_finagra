@@ -1,6 +1,6 @@
 /**
  * All Finagra site copy, drawn from finagra.com.
- * Edit here — layout components read from this file.
+ * Edit here; layout components read from this file.
  */
 
 export const site = {
@@ -21,15 +21,15 @@ export const hero = {
   eyebrow: "Empower Rural Growth",
   title: "Building scalable, climate-smart farms that strengthen local economies.",
   subtitle:
-    "Finagra empowers rural entrepreneurs and farmers with the tools and systems to turn conventional farming into efficient, high-yield operations — generating stable income and robust rural economies.",
+    "We give rural entrepreneurs and farmers the tools to turn conventional farming into high-yield operations, creating stable income and stronger rural economies.",
   primaryCta: { label: "Work with us", href: "#contact" },
-  secondaryCta: { label: "See how it works ↓", href: "#solution" },
+  secondaryCta: { label: "scroll to read more", href: "#solution" },
 };
 
 export const thesis = {
   eyebrow: "The model",
-  title: "Capital, technology, and local entrepreneurs — combined.",
-  body: "Finagra brings capital, technology, and structured farm management into rural communities, turning underperforming farmland into productive, high-yield operations led by local entrepreneurs.",
+  title: "Capital, technology, and local entrepreneurs, combined.",
+  body: "We bring capital, technology, and structured management to rural communities, turning underperforming farmland into productive farms led by local entrepreneurs.",
 };
 
 export const solution = {
@@ -39,17 +39,17 @@ export const solution = {
     {
       icon: "sprout",
       title: "Capital & Essential Inputs",
-      body: "Land access support, quality seeds, fertilizers, irrigation systems, and modern machinery for productive farm operations.",
+      body: "Land access, quality seeds, fertilizers, irrigation, and modern machinery.",
     },
     {
       icon: "cpu",
       title: "Technology & Agronomy",
-      body: "Best-in-class agronomy, precision tools, and climate-smart practices for risk prediction, yield improvement, and long-term soil and water protection.",
+      body: "Precision tools and climate-smart practices that raise yields and protect soil and water.",
     },
     {
       icon: "users",
       title: "Entrepreneurship",
-      body: "We identify and support rural entrepreneurial leaders with operating models, guidance, and infrastructure for large-scale farm management.",
+      body: "We back local leaders with the models, guidance, and infrastructure to run farms at scale.",
     },
   ],
 };
@@ -58,25 +58,25 @@ export const howItWorks = {
   eyebrow: "How It Works",
   title: "How Finagra works with both farmers and entrepreneurs.",
   intro:
-    "Finagra exists to support two groups who drive rural agriculture forward: entrepreneurs who operate modern farms, and farmers who provide the land, experience, and community connection that make those farms possible.",
+    "We support the two groups who drive rural agriculture: entrepreneurs who run modern farms, and farmers who provide the land and local knowledge.",
   steps: [
     {
       step: "01",
-      title: "Building Productive Farm Foundations",
-      body: "Farmers and landowners receive guaranteed income and improved soil productivity. REPs receive the right equipment, seeds, fertilizers, and irrigation to farm efficiently.",
+      title: "Build Productive Foundations",
+      body: "Landowners get guaranteed income and healthier soil. REPs get the equipment, seeds, and irrigation to farm efficiently.",
     },
     {
       step: "02",
-      title: "Guiding Modern Farming Practices",
-      body: "REPs get best-practice agronomy, precision farming tools, and modern training. Farmers benefit from better outcomes, climate-resilient practices, and stable production.",
+      title: "Guide Modern Practices",
+      body: "REPs get expert agronomy, precision tools, and training. Farmers get better, more climate-resilient harvests.",
     },
     {
       step: "03",
-      title: "Ensuring Shared, Long-Term Benefits",
-      body: "When harvest is sold, REPs earn from farm management, farmers and landowners receive guaranteed returns, and the community gains through local development investment.",
+      title: "Share Long-Term Benefits",
+      body: "At harvest, REPs earn from management, landowners receive guaranteed returns, and the community gains from local investment.",
     },
   ],
-  closing: "Everyone participates in the upside — not just one group.",
+  closing: "Everyone shares in the upside, not just one group.",
 };
 
 export const whoWeServe = {
@@ -85,15 +85,15 @@ export const whoWeServe = {
   groups: [
     {
       title: "Entrepreneurs (REPs)",
-      body: "Rural Entrepreneur Partners are trusted local leaders we incubate and support. They manage modern farms at scale using Finagra's tools, technology, and operational guidance.",
+      body: "Trusted local leaders we incubate and support to run modern farms at scale with our tools and guidance.",
     },
     {
       title: "Farmers & Landowners",
-      body: "Farmers and landowners keep full ownership and control of their land. Finagra guarantees at least the income they earn today — usually higher — while improving soil health, productivity, and long-term value.",
+      body: "Owners keep full control of their land. We guarantee at least their current income, usually more, while improving soil health and long-term value.",
     },
     {
       title: "Communities",
-      body: "We focus on regions where agriculture is the main livelihood but limited by small plots, low productivity, and lack of capital — so the entire community benefits, not just a single large farmer.",
+      body: "We work where farming is the main livelihood, so the whole community benefits, not just one large farmer.",
     },
   ],
 };
@@ -101,7 +101,7 @@ export const whoWeServe = {
 export const becomeRep = {
   eyebrow: "Become a REP",
   title: "We invest 100% of production costs. You manage the fields. We share the profit.",
-  body: "Rural Entrepreneur Partners are local leaders who manage Finagra-financed agricultural operations. We look for ambition, integrity, community understanding, and readiness to lead — not just farming experience.",
+  body: "Local leaders who manage Finagra-financed farms. We look for ambition, integrity, and readiness to lead, not just farming experience.",
   stats: [
     { value: "100%", label: "of production costs financed" },
     { value: "$0", label: "upfront investment required" },
@@ -111,19 +111,19 @@ export const becomeRep = {
   receives: [
     {
       title: "Financing",
-      body: "Finagra covers seeds, fertilizers, mechanization, and agrochemicals. REPs provide land and on-ground management.",
+      body: "We cover seeds, fertilizers, machinery, and agrochemicals. You provide land and management.",
     },
     {
       title: "Support",
-      body: "Digital agronomist tools, production guidelines, and field-officer guidance throughout the season.",
+      body: "Digital agronomy tools, guidelines, and field-officer support all season.",
     },
     {
       title: "Market Access",
-      body: "Finagra manages produce offtake and sales through established buyer networks.",
+      body: "We handle offtake and sales through established buyer networks.",
     },
     {
       title: "Transparent Compensation",
-      body: "25% net profit after input costs are deducted, calculated transparently every season.",
+      body: "25% of net profit after input costs, calculated openly each season.",
     },
   ],
   regions: [
@@ -140,8 +140,8 @@ export const repRegions = {
     image: "/images/rep-kenya.jpg",
     headline: "Become a Finagra REP in Kenya",
     definition:
-      "Rural Entrepreneur Partners are farmers with 5+ years of hands-on experience in high-value crops who manage Finagra-financed agricultural operations.",
-    model: "Finagra invests 100% of production costs. You manage the fields. We share the profit.",
+      "Experienced farmers with 5+ years in high-value crops, managing Finagra-financed operations.",
+    model: "We invest 100% of production costs. You manage the fields. We share the profit.",
     stats: [
       { value: "0 KES", label: "capital required from you" },
       { value: "100%", label: "of production costs financed" },
@@ -156,8 +156,8 @@ export const repRegions = {
     image: "/images/rep-india.jpg",
     headline: "Become a Finagra REP in India",
     definition:
-      "Rural Entrepreneur Partners are experienced local farmers and emerging leaders who manage Finagra-financed agricultural operations at scale.",
-    model: "Finagra invests 100% of production costs. You manage the fields. We share the profit.",
+      "Experienced farmers and emerging leaders managing Finagra-financed operations at scale.",
+    model: "We invest 100% of production costs. You manage the fields. We share the profit.",
     stats: [
       { value: "₹0", label: "capital required from you" },
       { value: "100%", label: "of production costs financed" },
@@ -172,31 +172,31 @@ export type RepRegionSlug = keyof typeof repRegions;
 export const faqs = [
   {
     q: "What does Finagra actually do?",
-    a: "Finagra brings capital, technology, and structured farm management into rural communities — turning underperforming farmland into productive, high-yield operations led by local entrepreneurs.",
+    a: "We bring capital, technology, and structured management to rural communities, turning underperforming farmland into productive farms led by local entrepreneurs.",
   },
   {
     q: "Who are the REPs?",
-    a: "REPs (Rural Entrepreneur Partners) are trusted local leaders we incubate and support. They manage modern farms at scale using Finagra's tools, technology, and operational guidance.",
+    a: "Rural Entrepreneur Partners are trusted local leaders we support to run modern farms at scale with our tools and guidance.",
   },
   {
     q: "What happens to the farmers and landowners?",
-    a: "Farmers and landowners keep full ownership and control of their land. Finagra guarantees at least the same income they earn today — usually higher — while improving soil health, productivity, and long-term value.",
+    a: "They keep full ownership and control of their land. We guarantee at least their current income, usually more, while improving soil health and long-term value.",
   },
   {
     q: "Why would a farmer lease their land?",
-    a: "Finagra offers modern equipment, quality seeds and inputs, reliable markets, stable income, and improved soil productivity — allowing farmers to reduce risk while increasing returns.",
+    a: "We provide modern equipment, quality inputs, reliable markets, and stable income, so farmers cut risk while earning more.",
   },
   {
     q: "How does Finagra choose where to operate?",
-    a: "We focus on regions where agriculture is the main livelihood but still limited by small plots, low productivity, and lack of capital. Our goal is to ensure the entire community benefits — not just a single large farmer.",
+    a: "We focus on regions where farming is the main livelihood but held back by small plots and lack of capital, so the whole community benefits.",
   },
   {
     q: "Do REPs need farming experience?",
-    a: "Not necessarily. Candidates include local farmers scaling up or educated young people returning home. Finagra provides comprehensive training, agronomy support, and technology.",
+    a: "Not necessarily. We provide full training, agronomy support, and technology. Many REPs are farmers scaling up or young people returning home.",
   },
   {
     q: "Does Finagra give cash to REPs?",
-    a: "No. We provide the inputs needed to operate at scale: land access, seeds, fertilizers, irrigation, machinery, technology, and agronomy support — not cash transfers.",
+    a: "No. We provide inputs, not cash: land access, seeds, fertilizers, irrigation, machinery, and agronomy support.",
   },
   {
     q: "Who benefits from Finagra's model?",
@@ -204,14 +204,14 @@ export const faqs = [
   },
   {
     q: "Can someone apply to become a REP?",
-    a: "Yes. Candidates can express interest through the contact form. We look for ambition, integrity, community understanding, and readiness to lead — not just farming experience.",
+    a: "Yes. Reach out through the contact form. We look for ambition, integrity, and readiness to lead, not just farming experience.",
   },
 ];
 
 export const contact = {
   eyebrow: "Get in touch",
   title: "Work with us.",
-  body: "If you're interested in joining our network or partnering with us, reach out. Sign up with your email to receive news and updates.",
+  body: "Joining our network or partnering with us? Reach out, or sign up for news and updates.",
 };
 
 export const careers = {
@@ -219,7 +219,7 @@ export const careers = {
     eyebrow: "Careers",
     title: "Build the future of rural agriculture.",
     subtitle:
-      "Work that matters, in places that matter. We're looking for people who want to work on real problems — in the field, in the data, and in the communities we serve.",
+      "Work that matters, in places that matter. We want people who love solving real problems in the field, in the data, and in the communities we serve.",
   },
   roles: [
     // TODO: replace with real open roles
@@ -243,8 +243,8 @@ export const footer = {
     {
       title: "Join us",
       links: [
-        { label: "Become a REP — Kenya", href: "/become-a-rep/kenya" },
-        { label: "Become a REP — India", href: "/become-a-rep/india" },
+        { label: "Become a REP · Kenya", href: "/become-a-rep/kenya" },
+        { label: "Become a REP · India", href: "/become-a-rep/india" },
         { label: "Careers", href: "/careers" },
         { label: "Contact", href: "/#contact" },
       ],
