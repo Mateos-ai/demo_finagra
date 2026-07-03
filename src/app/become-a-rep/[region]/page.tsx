@@ -107,7 +107,7 @@ export default async function BecomeRepRegionPage({
         </Container>
       </Section>
 
-      <Contact />
+      <Contact showInterest={false} />
     </>
   );
 }

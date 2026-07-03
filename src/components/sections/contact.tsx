@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/select";
 import { contact } from "@/content/site";
 
-export function Contact() {
+export function Contact({ showInterest = true }: { showInterest?: boolean }) {
   const [submitted, setSubmitted] = useState(false);
   const [interest, setInterest] = useState("");
 
@@ -51,18 +51,20 @@ export function Contact() {
               onSubmit={handleSubmit}
               className="mx-auto mt-9 flex max-w-md flex-col gap-3"
             >
-              <Select value={interest} onValueChange={setInterest} required>
-                <SelectTrigger className="h-11 w-full" aria-label="I'm interested in">
-                  <SelectValue placeholder="I'm interested in..." />
-                </SelectTrigger>
-                <SelectContent>
-                  {contact.interests.map((option) => (
-                    <SelectItem key={option} value={option}>
-                      {option}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              {showInterest ? (
+                <Select value={interest} onValueChange={setInterest} required>
+                  <SelectTrigger className="h-11 w-full" aria-label="I'm interested in">
+                    <SelectValue placeholder="I'm interested in..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {contact.interests.map((option) => (
+                      <SelectItem key={option} value={option}>
+                        {option}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              ) : null}
 
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Input
