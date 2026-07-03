@@ -48,7 +48,7 @@ export function Hero() {
         </div>
 
         <Photo
-          src="/images/hero.webp"
+          src="/images/hero.avif"
           alt="A drone flying over terraced farmland in a lush green valley"
           aspect="aspect-[4/3] md:aspect-[16/9]"
           priority
