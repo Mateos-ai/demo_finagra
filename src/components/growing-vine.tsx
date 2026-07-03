@@ -25,11 +25,20 @@ type Item = {
   side: 1 | -1;
   t: number;
   kind: "leaf" | "flower";
-  marigold: boolean;
+  color: number;
   scale: number;
   jitter: number;
   duration: number;
 };
+
+// Flower palette — brand colors up top, the whole meadow near the bottom.
+const FLOWER_COLORS = [
+  { petal: "var(--lime-400)", heart: "var(--green-700)" }, // lime
+  { petal: "var(--earth-500)", heart: "var(--earth-700)" }, // marigold
+  { petal: "var(--sky-500)", heart: "var(--sky-700)" }, // cornflower
+  { petal: "oklch(0.82 0.12 350)", heart: "oklch(0.6 0.17 352)" }, // blossom pink
+  { petal: "oklch(0.89 0.15 95)", heart: "var(--earth-700)" }, // sunflower
+];
 
 // Deterministic pseudo-random, stable across renders/resizes.
 function hash(n: number): number {
@@ -55,9 +64,8 @@ function buildPath(h: number): string {
 // Teardrop leaf pointing up-and-out; rotated per anchor.
 const LEAF_D = "M0 0 C 5.5 -1.5, 9.5 -6.5, 10 -13 C 4.5 -11.5, 0.5 -6, 0 0 Z";
 
-function Flower({ marigold, r = 1 }: { marigold: boolean; r?: number }) {
-  const petal = marigold ? "var(--earth-500)" : "var(--lime-400)";
-  const heart = marigold ? "var(--earth-700)" : "var(--green-700)";
+function Flower({ color, r = 1 }: { color: number; r?: number }) {
+  const { petal, heart } = FLOWER_COLORS[color] ?? FLOWER_COLORS[0];
   return (
     <>
       {[0, 72, 144, 216, 288].map((deg) => (
@@ -99,21 +107,32 @@ export function GrowingVine() {
     if (!stem || !height) return;
     const total = stem.getTotalLength();
     const next: Item[] = [];
+    // Cycle order for the deep "meadow" flowers so every color shows up.
+    const meadow = [3, 2, 4, 1, 0]; // pink, cornflower, sunflower, marigold, lime
+    let deepFlowers = 0;
     for (let i = 0; i < N; i++) {
       const u = (i + 0.5) / N;
       const t = Math.pow(u, 0.68);
       const p = stem.getPointAtLength(t * total);
       const p2 = stem.getPointAtLength(Math.min(total, t * total + 2));
       const angle = (Math.atan2(p2.y - p.y, p2.x - p.x) * 180) / Math.PI;
+      // flowers get likelier with depth: none up top, common below
+      const kind: Item["kind"] =
+        hash(i * 3 + 1) < (t - 0.25) * 0.9 ? "flower" : "leaf";
+      // upper flowers stay on-brand; the deep ones cycle the whole meadow
+      let color = hash(i * 7 + 2) < 0.6 ? 0 : 1;
+      if (kind === "flower" && t >= 0.6) {
+        color = meadow[deepFlowers % meadow.length];
+        deepFlowers++;
+      }
       next.push({
         x: p.x,
         y: p.y,
         angle,
         side: i % 2 === 0 ? 1 : -1,
         t,
-        // flowers get likelier with depth: none up top, common below
-        kind: hash(i * 3 + 1) < (t - 0.25) * 0.9 ? "flower" : "leaf",
-        marigold: hash(i * 7 + 2) < 0.3,
+        kind,
+        color,
         // foliage also grows larger with depth
         scale: (0.72 + t * 0.55) * (0.88 + hash(i * 13 + 3) * 0.28),
         jitter: (hash(i * 17 + 5) - 0.5) * 26,
@@ -244,7 +263,7 @@ export function GrowingVine() {
                 fillOpacity="0.9"
               />
             ) : (
-              <Flower marigold={it.marigold} />
+              <Flower color={it.color} />
             )}
           </g>
         ))}
@@ -272,7 +291,7 @@ export function GrowingVine() {
                   "transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)",
               }}
             >
-              <Flower marigold={false} r={1.5} />
+              <Flower color={0} r={1.5} />
             </g>
           </g>
         ) : null}
