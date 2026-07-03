@@ -12,7 +12,7 @@ export function SiteFooter() {
             <Logo />
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               {site.tagline}. Combining capital, technology, and local
-              entrepreneurs to build climate-smart farms that strengthen rural
+              representatives to build climate-smart farms that strengthen rural
               economies.
             </p>
           </div>

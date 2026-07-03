@@ -13,14 +13,14 @@ export const nav = [
   { label: "Our Solution", href: "#solution" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Who We Serve", href: "#who-we-serve" },
-  { label: "Become a REP", href: "#become-a-rep" },
+  { label: "Become a Representative", href: "#become-a-rep" },
   { label: "FAQ", href: "#faq" },
 ] as const;
 
 export const hero = {
   title: "Building the future of rural agriculture.",
   subtitle:
-    "We give rural entrepreneurs and farmers the tools to turn conventional farming into high-yield operations, creating stable income and stronger rural economies.",
+    "We give rural representatives and farmers the tools to turn conventional farming into high-yield operations, creating stable income and stronger rural economies.",
   primaryCta: { label: "Join Us", href: "#contact" },
   secondaryCta: { label: "scroll to read more", href: "#model" },
 };
@@ -29,7 +29,7 @@ export const thesis = {
   eyebrow: "The model",
   paragraphs: [
     "We bring capital, technology, and structured management to rural communities.",
-    "Turning underperforming farmland into productive farms, led by local entrepreneurs.",
+    "Turning underperforming farmland into productive farms, led by local representatives.",
   ],
 };
 
@@ -49,7 +49,7 @@ export const solution = {
     },
     {
       icon: "users",
-      title: "Entrepreneurship",
+      title: "Representatives",
       body: "We back local leaders with the models, guidance, and infrastructure to run farms at scale.",
     },
   ],
@@ -57,24 +57,24 @@ export const solution = {
 
 export const howItWorks = {
   eyebrow: "How It Works",
-  title: "We support both farmers and entrepreneurs.",
+  title: "We support both farmers and representatives.",
   intro:
-    "We support the two groups who drive rural agriculture: entrepreneurs who run modern farms, and farmers who provide the land and local knowledge.",
+    "We support the two groups who drive rural agriculture: representatives who run modern farms, and farmers who provide the land and local knowledge.",
   steps: [
     {
       step: "01",
       title: "Build Productive Foundations",
-      body: "Landowners get guaranteed income and healthier soil. Entrepreneurs get the equipment, seeds, and irrigation to farm efficiently.",
+      body: "Landowners get guaranteed income and healthier soil. Representatives get the equipment, seeds, and irrigation to farm efficiently.",
     },
     {
       step: "02",
       title: "Guide Modern Practices",
-      body: "Entrepreneurs get expert agronomy, precision tools, and training. Farmers get better, more climate-resilient harvests.",
+      body: "Representatives get expert agronomy, precision tools, and training. Farmers get better, more climate-resilient harvests.",
     },
     {
       step: "03",
       title: "Share Long-Term Benefits",
-      body: "At harvest, entrepreneurs earn from management, landowners receive guaranteed returns, and the community gains from local investment.",
+      body: "At harvest, representatives earn from management, landowners receive guaranteed returns, and the community gains from local investment.",
     },
   ],
   closing: "Everyone shares in the upside, not just one group.",
@@ -85,7 +85,7 @@ export const whoWeServe = {
   title: "The people at the center of Finagra's model.",
   groups: [
     {
-      title: "Entrepreneurs (REPs)",
+      title: "Representatives",
       body: "Trusted local leaders we incubate and support to run modern farms at scale with our tools and guidance.",
     },
     {
@@ -100,7 +100,7 @@ export const whoWeServe = {
 };
 
 export const becomeRep = {
-  eyebrow: "Become a REP",
+  eyebrow: "Become a Representative",
   title: "A partnership built to share the upside.",
   body: "Local leaders who manage Finagra-financed farms. We look for ambition, integrity, and readiness to lead, not just farming experience.",
   model: [
@@ -124,7 +124,7 @@ export const becomeRep = {
     { value: "100%", label: "of production costs financed" },
     { value: "$0", label: "upfront investment required" },
     { value: "25%", label: "net profit share, every season" },
-    { value: "500", label: "REPs targeted by 2028" },
+    { value: "500", label: "representatives targeted by 2028" },
   ],
   receives: [
     {
@@ -156,7 +156,7 @@ export const repRegions = {
     country: "Kenya",
     flag: "🇰🇪",
     image: "/images/rep-kenya.jpg",
-    headline: "Become a Finagra REP in Kenya",
+    headline: "Become a Finagra Representative in Kenya",
     definition:
       "Experienced farmers with 5+ years in high-value crops, managing Finagra-financed operations.",
     model: "We invest 100% of production costs. You manage the fields. We share the profit.",
@@ -164,7 +164,7 @@ export const repRegions = {
       { value: "0 KES", label: "capital required from you" },
       { value: "100%", label: "of production costs financed" },
       { value: "25%", label: "net profit share, every season" },
-      { value: "500", label: "REPs targeted by 2028" },
+      { value: "500", label: "representatives targeted by 2028" },
     ],
   },
   india: {
@@ -172,7 +172,7 @@ export const repRegions = {
     country: "India",
     flag: "🇮🇳",
     image: "/images/rep-india.jpg",
-    headline: "Become a Finagra REP in India",
+    headline: "Become a Finagra Representative in India",
     definition:
       "Experienced farmers and emerging leaders managing Finagra-financed operations at scale.",
     model: "We invest 100% of production costs. You manage the fields. We share the profit.",
@@ -180,7 +180,7 @@ export const repRegions = {
       { value: "₹0", label: "capital required from you" },
       { value: "100%", label: "of production costs financed" },
       { value: "25%", label: "net profit share, every season" },
-      { value: "500", label: "REPs targeted by 2028" },
+      { value: "500", label: "representatives targeted by 2028" },
     ],
   },
 } as const;
@@ -190,11 +190,11 @@ export type RepRegionSlug = keyof typeof repRegions;
 export const faqs = [
   {
     q: "What does Finagra actually do?",
-    a: "We bring capital, technology, and structured management to rural communities, turning underperforming farmland into productive farms led by local entrepreneurs.",
+    a: "We bring capital, technology, and structured management to rural communities, turning underperforming farmland into productive farms led by local representatives.",
   },
   {
-    q: "Who are the REPs?",
-    a: "Rural Entrepreneur Partners are trusted local leaders we support to run modern farms at scale with our tools and guidance.",
+    q: "Who are the representatives?",
+    a: "Representatives are trusted local leaders we support to run modern farms at scale with our tools and guidance.",
   },
   {
     q: "What happens to the farmers and landowners?",
@@ -209,19 +209,19 @@ export const faqs = [
     a: "We focus on regions where farming is the main livelihood but held back by small plots and lack of capital, so the whole community benefits.",
   },
   {
-    q: "Do REPs need farming experience?",
-    a: "Not necessarily. We provide full training, agronomy support, and technology. Many REPs are farmers scaling up or young people returning home.",
+    q: "Do representatives need farming experience?",
+    a: "Not necessarily. We provide full training, agronomy support, and technology. Many representatives are farmers scaling up or young people returning home.",
   },
   {
-    q: "Does Finagra give cash to REPs?",
+    q: "Does Finagra give cash to representatives?",
     a: "No. We provide inputs, not cash: land access, seeds, fertilizers, irrigation, machinery, and agronomy support.",
   },
   {
     q: "Who benefits from Finagra's model?",
-    a: "Local farmers, REPs, rural communities, buyers, and governments supporting agricultural development.",
+    a: "Local farmers, representatives, rural communities, buyers, and governments supporting agricultural development.",
   },
   {
-    q: "Can someone apply to become a REP?",
+    q: "Can someone apply to become a representative?",
     a: "Yes. Reach out through the contact form. We look for ambition, integrity, and readiness to lead, not just farming experience.",
   },
 ];
@@ -250,7 +250,7 @@ export const careers = {
     // TODO: replace with real open roles
     { title: "Field Operations Lead", location: "Kenya", type: "Full-time" },
     { title: "Agronomist", location: "India", type: "Full-time" },
-    { title: "REP Program Manager", location: "Remote / Field", type: "Full-time" },
+    { title: "Representative Program Manager", location: "Remote / Field", type: "Full-time" },
   ],
 };
 
@@ -268,8 +268,8 @@ export const footer = {
     {
       title: "Join us",
       links: [
-        { label: "Become a REP · Kenya", href: "/become-a-rep/kenya" },
-        { label: "Become a REP · India", href: "/become-a-rep/india" },
+        { label: "Become a Representative · Kenya", href: "/become-a-rep/kenya" },
+        { label: "Become a Representative · India", href: "/become-a-rep/india" },
         { label: "Careers", href: "/careers" },
         { label: "Contact", href: "/#contact" },
       ],

@@ -34,7 +34,7 @@ export function BecomeRep() {
           </div>
           <Photo
             src="/images/rep-entrepreneur.jpg"
-            alt="A young rural entrepreneur in the field"
+            alt="A young rural representative in the field"
             aspect="aspect-[4/3]"
             sizes="(min-width: 1024px) 40vw, 100vw"
           />
@@ -73,7 +73,7 @@ export function BecomeRep() {
         {/* What you receive */}
         <div className="mt-8 rounded-2xl border border-border bg-muted/40 p-8 md:p-10">
           <h3 className="text-sm font-semibold tracking-wide text-foreground">
-            What you receive as an entrepreneur
+            What you receive as a representative
           </h3>
           <div className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2">
             {becomeRep.receives.map((item) => (
@@ -101,7 +101,7 @@ export function BecomeRep() {
               className="h-11 w-full rounded-xl px-6 text-[0.95rem] sm:w-auto"
             >
               <Link href={region.href}>
-                Become a REP in {region.label}
+                Become a Representative in {region.label}
                 <ArrowRight className="size-4" />
               </Link>
             </Button>

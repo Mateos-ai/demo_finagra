@@ -28,7 +28,7 @@ export function Hero() {
 
         <Photo
           src="/images/hero-corn-wide.jpg"
-          alt="A rural entrepreneur holding a fresh harvest of maize in the field"
+          alt="A rural representative holding a fresh harvest of maize in the field"
           aspect="aspect-[4/3] md:aspect-[3/2]"
           priority
           sizes="(min-width: 1024px) 1100px, 100vw"

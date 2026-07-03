@@ -23,9 +23,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { region } = await params;
   const data = getRegion(region);
-  if (!data) return { title: "Become a REP" };
+  if (!data) return { title: "Become a Representative" };
   return {
-    title: `Become a REP in ${data.country}`,
+    title: `Become a Representative in ${data.country}`,
     description: data.definition,
   };
 }
@@ -83,7 +83,7 @@ export default async function BecomeRepRegionPage({
       <Section>
         <Container className="max-w-4xl">
           <SectionHeading
-            eyebrow="What REPs receive"
+            eyebrow="What representatives receive"
             title="Everything you need to farm at scale."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2">

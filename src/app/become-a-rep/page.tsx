@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { becomeRep, repRegions } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Become a REP",
+  title: "Become a Representative",
   description: becomeRep.body,
 };
 
@@ -38,7 +38,7 @@ export default function BecomeRepIndex() {
         </div>
         <div className="mt-10">
           <Button asChild variant="outline" className="h-10 rounded-xl px-5">
-            <Link href="/#become-a-rep">Learn more about the REP model</Link>
+            <Link href="/#become-a-rep">Learn more about the representative model</Link>
           </Button>
         </div>
       </Container>

@@ -26,20 +26,20 @@ export const metadata: Metadata = {
     template: "%s · Finagra",
   },
   description:
-    "Finagra empowers rural entrepreneurs and farmers with the tools and systems to build scalable, climate-smart farms that strengthen local economies.",
+    "Finagra empowers rural representatives and farmers with the tools and systems to build scalable, climate-smart farms that strengthen local economies.",
   openGraph: {
     type: "website",
     url: "https://www.finagra.com",
     title: "Finagra · Empower Rural Growth",
     description:
-      "Combining capital, technology, and local entrepreneurs to turn conventional farming into efficient, high-yield operations.",
+      "Combining capital, technology, and local representatives to turn conventional farming into efficient, high-yield operations.",
     siteName: "Finagra",
   },
   twitter: {
     card: "summary_large_image",
     title: "Finagra · Empower Rural Growth",
     description:
-      "Combining capital, technology, and local entrepreneurs to turn conventional farming into efficient, high-yield operations.",
+      "Combining capital, technology, and local representatives to turn conventional farming into efficient, high-yield operations.",
   },
 };
 
