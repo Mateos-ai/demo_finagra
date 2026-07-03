@@ -39,7 +39,6 @@ export default function Home() {
       <PhotoBand
         src="/images/field-aerial.jpg"
         alt="Aerial view of a combine harvester working a productive field"
-        statement="Turning underperforming farmland into productive, high-yield operations, led by local entrepreneurs."
       />
 
       <BecomeRep />
