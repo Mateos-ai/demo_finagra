@@ -6,16 +6,36 @@ import { useEffect, useRef, useState } from "react";
  * Scroll-grown vine in the left page gutter.
  *
  * A faint wavy track runs the full viewport height; the vivid stem draws
- * itself over the track as you scroll (stroke-dash technique), a lime growth
- * tip glides along the curve, and leaves unfurl once the tip passes them.
- * Desktop-only (xl+), pointer-events-none, and purely decorative.
+ * itself over the track as you scroll, a lime growth tip glides along the
+ * curve, and foliage unfurls once the tip passes it. Foliage density
+ * increases with depth: sparse leaves up top, clusters of leaves and
+ * flowers toward the bottom, and a full bloom at the very end.
+ * Desktop-only (xl+), pointer-events-none, purely decorative.
  */
 
 const W = 36; // strip width in px
 const AMP = 9; // wave amplitude
 const SEGS = 7; // S-curve segments
+const N = 18; // foliage anchors (spacing tightens toward the bottom)
 
-type Leaf = { x: number; y: number; angle: number; side: 1 | -1; t: number };
+type Item = {
+  x: number;
+  y: number;
+  angle: number;
+  side: 1 | -1;
+  t: number;
+  kind: "leaf" | "flower";
+  marigold: boolean;
+  scale: number;
+  jitter: number;
+  duration: number;
+};
+
+// Deterministic pseudo-random, stable across renders/resizes.
+function hash(n: number): number {
+  const s = Math.sin(n * 127.1) * 43758.5453;
+  return s - Math.floor(s);
+}
 
 function buildPath(h: number): string {
   const cx = W / 2;
@@ -33,15 +53,36 @@ function buildPath(h: number): string {
 }
 
 // Teardrop leaf pointing up-and-out; rotated per anchor.
-const LEAF_D =
-  "M0 0 C 5.5 -1.5, 9.5 -6.5, 10 -13 C 4.5 -11.5, 0.5 -6, 0 0 Z";
+const LEAF_D = "M0 0 C 5.5 -1.5, 9.5 -6.5, 10 -13 C 4.5 -11.5, 0.5 -6, 0 0 Z";
+
+function Flower({ marigold, r = 1 }: { marigold: boolean; r?: number }) {
+  const petal = marigold ? "var(--earth-500)" : "var(--lime-400)";
+  const heart = marigold ? "var(--earth-700)" : "var(--green-700)";
+  return (
+    <>
+      {[0, 72, 144, 216, 288].map((deg) => (
+        <ellipse
+          key={deg}
+          rx={3 * r}
+          ry={5.5 * r}
+          transform={`rotate(${deg}) translate(0 ${-5.5 * r})`}
+          fill={petal}
+          fillOpacity="0.92"
+        />
+      ))}
+      <circle r={2.3 * r} fill={heart} />
+    </>
+  );
+}
 
 export function GrowingVine() {
   const stemRef = useRef<SVGPathElement>(null);
   const tipRef = useRef<SVGCircleElement>(null);
-  const leafRefs = useRef<(SVGGElement | null)[]>([]);
+  const bloomRef = useRef<SVGGElement>(null);
+  const itemRefs = useRef<(SVGGElement | null)[]>([]);
   const [height, setHeight] = useState(0);
-  const [leaves, setLeaves] = useState<Leaf[]>([]);
+  const [items, setItems] = useState<Item[]>([]);
+  const [endPt, setEndPt] = useState<{ x: number; y: number } | null>(null);
 
   // Measure viewport height (SVG is rebuilt on resize).
   useEffect(() => {
@@ -51,26 +92,44 @@ export function GrowingVine() {
     return () => window.removeEventListener("resize", measure);
   }, []);
 
-  // Compute leaf anchors along the real path geometry.
+  // Compute foliage anchors along the real path geometry.
+  // Depth-eased spacing: t = u^0.68 clusters anchors toward the bottom.
   useEffect(() => {
     const stem = stemRef.current;
     if (!stem || !height) return;
     const total = stem.getTotalLength();
-    const next: Leaf[] = [];
-    for (let i = 0; i < SEGS; i++) {
-      const t = (i + 0.55) / SEGS; // mid-segment, where the curve bulges
+    const next: Item[] = [];
+    for (let i = 0; i < N; i++) {
+      const u = (i + 0.5) / N;
+      const t = Math.pow(u, 0.68);
       const p = stem.getPointAtLength(t * total);
       const p2 = stem.getPointAtLength(Math.min(total, t * total + 2));
       const angle = (Math.atan2(p2.y - p.y, p2.x - p.x) * 180) / Math.PI;
-      next.push({ x: p.x, y: p.y, angle, side: i % 2 === 0 ? 1 : -1, t });
+      next.push({
+        x: p.x,
+        y: p.y,
+        angle,
+        side: i % 2 === 0 ? 1 : -1,
+        t,
+        // flowers get likelier with depth: none up top, common below
+        kind: hash(i * 3 + 1) < (t - 0.25) * 0.9 ? "flower" : "leaf",
+        marigold: hash(i * 7 + 2) < 0.3,
+        // foliage also grows larger with depth
+        scale: (0.72 + t * 0.55) * (0.88 + hash(i * 13 + 3) * 0.28),
+        jitter: (hash(i * 17 + 5) - 0.5) * 26,
+        duration: 0.45 + hash(i * 23 + 7) * 0.3,
+      });
     }
-    setLeaves(next);
+    setItems(next);
+    // Anchor the finale bloom a touch up the stem so it isn't edge-clipped.
+    const e = stem.getPointAtLength(Math.max(0, total - 18));
+    setEndPt({ x: e.x, y: e.y });
   }, [height]);
 
   // Scroll-driven growth, mutating the DOM directly (no re-renders).
   useEffect(() => {
     const stem = stemRef.current;
-    if (!stem || !height || leaves.length === 0) return;
+    if (!stem || !height || items.length === 0) return;
 
     const total = stem.getTotalLength();
     stem.style.strokeDasharray = `${total}`;
@@ -86,16 +145,22 @@ export function GrowingVine() {
         const pt = stem.getPointAtLength(p * total);
         tip.setAttribute("cx", `${pt.x}`);
         tip.setAttribute("cy", `${pt.y}`);
-        tip.setAttribute("r", p > 0.995 ? "5" : "3.5");
+        tip.setAttribute("r", p > 0.985 ? "0" : "3.5");
       }
-      leafRefs.current.forEach((g, i) => {
+      itemRefs.current.forEach((g, i) => {
         if (!g) return;
-        const leaf = leaves[i];
-        const grown = p >= leaf.t;
-        g.style.transform = `translate(${leaf.x}px, ${leaf.y}px) rotate(${
-          leaf.angle + leaf.side * 62
-        }deg) scale(${grown ? 1 : 0})`;
+        const it = items[i];
+        const grown = p >= it.t;
+        const rot =
+          it.kind === "leaf"
+            ? it.angle + it.side * 62 + it.jitter
+            : it.jitter * 2.2;
+        g.style.transform = `translate(${it.x}px, ${it.y}px) rotate(${rot}deg) scale(${grown ? it.scale : 0})`;
       });
+      const bloom = bloomRef.current;
+      if (bloom) {
+        bloom.style.transform = `scale(${p > 0.985 ? 1 : 0})`;
+      }
     };
 
     if (reduced) {
@@ -108,7 +173,8 @@ export function GrowingVine() {
     const tick = () => {
       const doc = document.documentElement;
       const max = doc.scrollHeight - window.innerHeight;
-      const target = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 1;
+      const target =
+        max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 1;
       if (current < 0) current = target;
       current += (target - current) * 0.09; // gentle lag, feels organic
       if (Math.abs(target - current) < 0.0004) current = target;
@@ -117,7 +183,7 @@ export function GrowingVine() {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [height, leaves]);
+  }, [height, items]);
 
   if (!height) return null;
   const d = buildPath(height);
@@ -127,7 +193,13 @@ export function GrowingVine() {
       className="pointer-events-none fixed left-4 top-0 z-30 hidden h-screen select-none xl:block"
       aria-hidden="true"
     >
-      <svg width={W} height={height} viewBox={`0 0 ${W} ${height}`} fill="none">
+      <svg
+        width={W}
+        height={height}
+        viewBox={`0 0 ${W} ${height}`}
+        fill="none"
+        style={{ overflow: "visible" }}
+      >
         <defs>
           <linearGradient id="vine-stem" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="var(--green-600)" />
@@ -137,7 +209,12 @@ export function GrowingVine() {
         </defs>
 
         {/* faint full-height track */}
-        <path d={d} stroke="var(--green-600)" strokeOpacity="0.14" strokeWidth="2" />
+        <path
+          d={d}
+          stroke="var(--green-600)"
+          strokeOpacity="0.14"
+          strokeWidth="2"
+        />
 
         {/* the growing stem */}
         <path
@@ -148,24 +225,27 @@ export function GrowingVine() {
           strokeLinecap="round"
         />
 
-        {/* leaves */}
-        {leaves.map((leaf, i) => (
+        {/* foliage: leaves and flowers, denser toward the bottom */}
+        {items.map((it, i) => (
           <g
             key={i}
             ref={(el) => {
-              leafRefs.current[i] = el;
+              itemRefs.current[i] = el;
             }}
             style={{
-              transform: `translate(${leaf.x}px, ${leaf.y}px) scale(0)`,
-              transition:
-                "transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1)",
+              transform: `translate(${it.x}px, ${it.y}px) scale(0)`,
+              transition: `transform ${it.duration}s cubic-bezier(0.34, 1.56, 0.64, 1)`,
             }}
           >
-            <path
-              d={LEAF_D}
-              fill={i % 3 === 2 ? "var(--lime-400)" : "var(--green-500)"}
-              fillOpacity="0.9"
-            />
+            {it.kind === "leaf" ? (
+              <path
+                d={LEAF_D}
+                fill={i % 3 === 2 ? "var(--lime-400)" : "var(--green-500)"}
+                fillOpacity="0.9"
+              />
+            ) : (
+              <Flower marigold={it.marigold} />
+            )}
           </g>
         ))}
 
@@ -180,6 +260,22 @@ export function GrowingVine() {
           strokeWidth="1"
           style={{ transition: "r 0.3s ease" }}
         />
+
+        {/* finale bloom at the end of the stem */}
+        {endPt ? (
+          <g style={{ transform: `translate(${endPt.x}px, ${endPt.y}px)` }}>
+            <g
+              ref={bloomRef}
+              style={{
+                transform: "scale(0)",
+                transition:
+                  "transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)",
+              }}
+            >
+              <Flower marigold={false} r={1.5} />
+            </g>
+          </g>
+        ) : null}
       </svg>
     </div>
   );
