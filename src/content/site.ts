@@ -18,7 +18,8 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  title: "Building the future of rural agriculture.",
+  title: "Building the future of",
+  titleAccent: "rural agriculture.",
   subtitle:
     "We give rural representatives and farmers the tools to turn conventional farming into high-yield operations, creating stable income and stronger rural economies.",
   primaryCta: { label: "Join Us", href: "#contact" },

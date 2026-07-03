@@ -27,7 +27,10 @@ export function Contact() {
   return (
     <Section id="contact">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <div
+          className="bg-field-soft mx-auto max-w-4xl rounded-3xl border border-border px-6 py-14 text-center md:px-16 md:py-16"
+          data-reveal
+        >
           <Eyebrow>{contact.eyebrow}</Eyebrow>
           <h2 className="text-3xl font-bold text-foreground md:text-[2.6rem]">
             {contact.title}

@@ -4,6 +4,7 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { RevealObserver } from "@/components/reveal";
 
 // Satoshi (Fontshare) — self-hosted variable font, used for headings + body.
 const satoshi = localFont({
@@ -54,6 +55,7 @@ export default function RootLayout({
       className={`${satoshi.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <RevealObserver />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

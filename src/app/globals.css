@@ -206,6 +206,24 @@
   }
   .dark .eyebrow { color: var(--green-300); }
 
+  /* Scroll reveal — only hides content once JS has confirmed it will reveal */
+  .reveal-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal-ready [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-ready [data-reveal][data-reveal-delay="1"].is-revealed { transition-delay: 0.08s; }
+  .reveal-ready [data-reveal][data-reveal-delay="2"].is-revealed { transition-delay: 0.16s; }
+  .reveal-ready [data-reveal][data-reveal-delay="3"].is-revealed { transition-delay: 0.24s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
+  }
+
   /* Subtle field gradient used behind hero / bands */
   .bg-field-soft {
     background:

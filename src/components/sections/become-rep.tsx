@@ -25,19 +25,22 @@ export function BecomeRep() {
       <Container>
         {/* Header + photo */}
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.85fr]">
-          <div>
+          <div data-reveal>
             <SectionHeading
               eyebrow={becomeRep.eyebrow}
               title={becomeRep.title}
               intro={becomeRep.body}
             />
           </div>
-          <Photo
-            src="/images/rep-entrepreneur.jpg"
-            alt="A young rural representative in the field"
-            aspect="aspect-[4/3]"
-            sizes="(min-width: 1024px) 40vw, 100vw"
-          />
+          <div data-reveal data-reveal-delay="1">
+            <Photo
+              src="/images/rep-entrepreneur.jpg"
+              alt="A young rural representative in the field"
+              aspect="aspect-[4/3]"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="shadow-xl shadow-green-900/5"
+            />
+          </div>
         </div>
 
         {/* The deal, in three steps */}
@@ -47,7 +50,9 @@ export function BecomeRep() {
             return (
               <Card
                 key={step.title}
-                className="border-border/80 transition-shadow hover:shadow-lg hover:shadow-green-900/5"
+                data-reveal
+                data-reveal-delay={i}
+                className="border-border/80 transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-xl hover:shadow-green-900/8"
               >
                 <CardContent className="p-7">
                   <div className="flex items-center justify-between">
@@ -71,7 +76,10 @@ export function BecomeRep() {
         </div>
 
         {/* What you receive */}
-        <div className="mt-8 rounded-2xl border border-border bg-muted/40 p-8 md:p-10">
+        <div
+          className="mt-8 rounded-2xl border border-border bg-muted/40 p-8 md:p-10"
+          data-reveal
+        >
           <h3 className="text-sm font-semibold tracking-wide text-foreground">
             What you receive as a representative
           </h3>

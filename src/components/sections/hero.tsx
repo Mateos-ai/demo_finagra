@@ -8,16 +8,17 @@ import { hero } from "@/content/site";
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-field-soft">
-      <Container className="py-20 md:py-24">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-[3.4rem] md:leading-[1.05]">
-            {hero.title}
+      <Container className="py-16 md:py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <h1 className="text-[2.6rem] font-bold leading-[1.06] tracking-tight text-foreground sm:text-6xl md:text-[4.2rem]">
+            {hero.title}{" "}
+            <span className="text-green-600">{hero.titleAccent}</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             {hero.subtitle}
           </p>
           <div className="mt-9">
-            <Button asChild className="h-11 rounded-xl px-6 text-[0.95rem]">
+            <Button asChild className="h-12 rounded-xl px-8 text-base">
               <Link href={hero.primaryCta.href}>
                 {hero.primaryCta.label}
                 <ArrowRight className="size-4" />
@@ -29,10 +30,10 @@ export function Hero() {
         <Photo
           src="/images/hero-corn-wide.jpg"
           alt="A rural representative holding a fresh harvest of maize in the field"
-          aspect="aspect-[4/3] md:aspect-[3/2]"
+          aspect="aspect-[4/3] md:aspect-[16/9]"
           priority
           sizes="(min-width: 1024px) 1100px, 100vw"
-          className="mt-12 shadow-xl shadow-green-900/5"
+          className="mt-14 rounded-3xl shadow-2xl shadow-green-900/10"
         />
 
         <Link
