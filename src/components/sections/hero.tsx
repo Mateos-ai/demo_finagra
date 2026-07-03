@@ -48,8 +48,8 @@ export function Hero() {
         </div>
 
         <Photo
-          src="/images/hero-corn-wide.jpg"
-          alt="A rural representative holding a fresh harvest of maize in the field"
+          src="/images/hero.webp"
+          alt="A drone flying over terraced farmland in a lush green valley"
           aspect="aspect-[4/3] md:aspect-[16/9]"
           priority
           sizes="(min-width: 1024px) 1100px, 100vw"

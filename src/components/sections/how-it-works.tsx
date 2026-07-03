@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import { HeartHandshake } from "lucide-react";
 import { Container, Section, SectionHeading } from "@/components/section";
 import { howItWorks } from "@/content/site";
 
@@ -44,7 +44,7 @@ export function HowItWorks() {
           data-reveal
           className="mt-10 flex items-center justify-center gap-2.5 rounded-full border border-lime-500/40 bg-lime-300/25 px-6 py-5 text-center"
         >
-          <Sparkles className="size-5 shrink-0 text-green-800" />
+          <HeartHandshake className="size-5 shrink-0 text-green-800" />
           <p className="text-base font-semibold text-green-900 md:text-lg">
             {howItWorks.closing}
           </p>
