@@ -249,11 +249,76 @@ export const careers = {
   },
   roles: [
     // TODO: replace with real open roles
-    { title: "Field Operations Lead", location: "Kenya", type: "Full-time" },
-    { title: "Agronomist", location: "India", type: "Full-time" },
-    { title: "Representative Program Manager", location: "Remote / Field", type: "Full-time" },
+    {
+      slug: "field-operations-lead",
+      title: "Field Operations Lead",
+      location: "Kenya",
+      type: "Full-time",
+      summary:
+        "Own day-to-day operations across a growing portfolio of representative-run farms in western Kenya.",
+      about:
+        "You will be the operational backbone of our Kenyan portfolio: planning seasons with representatives, coordinating input deliveries, and making sure every farm has what it needs, when it needs it. You will spend most of your week in the field, not behind a desk.",
+      responsibilities: [
+        "Plan and track the season calendar across 20+ farms",
+        "Coordinate seed, fertilizer, and machinery logistics with suppliers",
+        "Coach representatives on operational best practices",
+        "Report field progress and risks to the country team every week",
+      ],
+      lookingFor: [
+        "3+ years in agricultural operations, logistics, or field management",
+        "Comfort working across rural sites and travelling most of the week",
+        "Fluent English and Swahili",
+        "A bias for practical problem-solving over process",
+      ],
+    },
+    {
+      slug: "agronomist",
+      title: "Agronomist",
+      location: "India",
+      type: "Full-time",
+      summary:
+        "Set the agronomic playbook for high-value crops and coach representatives through every season.",
+      about:
+        "You will define how we farm: crop selection, input plans, irrigation schedules, and climate-smart practices. Your guidance flows through our digital tools and field officers to every representative we back, so your decisions compound across thousands of acres.",
+      responsibilities: [
+        "Build crop production guidelines for our priority regions",
+        "Run field trials and turn results into practice",
+        "Train field officers and representatives on modern agronomy",
+        "Feed learnings back into our digital agronomist tools",
+      ],
+      lookingFor: [
+        "Degree in agronomy or crop science, 4+ years applied experience",
+        "Hands-on knowledge of high-value crops and irrigation",
+        "Experience training farmers or field teams",
+        "Willingness to travel to rural sites regularly",
+      ],
+    },
+    {
+      slug: "representative-program-manager",
+      title: "Representative Program Manager",
+      location: "Remote / Field",
+      type: "Full-time",
+      summary:
+        "Build and run the program that finds, trains, and grows our representatives.",
+      about:
+        "Representatives are the heart of Finagra's model. You will own the pipeline end to end: sourcing candidates in new regions, running selection, designing training, and tracking performance season over season, so that we reach 500 representatives by 2028 without lowering the bar.",
+      responsibilities: [
+        "Design and run the representative selection process",
+        "Build the training curriculum with our agronomy team",
+        "Track representative performance and retention",
+        "Open new regions with the expansion team",
+      ],
+      lookingFor: [
+        "5+ years in program or partner management",
+        "Experience in emerging markets or rural development",
+        "Strong written communication and data literacy",
+        "Empathy for the people at the center of the model",
+      ],
+    },
   ],
 };
+
+export type CareerRole = (typeof careers.roles)[number];
 
 export const footer = {
   columns: [

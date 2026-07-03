@@ -46,29 +46,32 @@ export default function CareersPage() {
           </h2>
           <ul className="mt-8 divide-y divide-border rounded-2xl border border-border">
             {careers.roles.map((role) => (
-              <li
-                key={role.title}
-                className="flex flex-col gap-3 p-6 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">
-                    {role.title}
-                  </h3>
-                  <p className="mt-1 flex items-center gap-3 text-sm text-muted-foreground">
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="size-3.5" />
-                      {role.location}
-                    </span>
-                    <span>·</span>
-                    <span>{role.type}</span>
-                  </p>
-                </div>
-                <Button asChild variant="outline" className="h-10 rounded-xl px-5">
-                  <Link href="/#contact">
+              <li key={role.slug}>
+                <Link
+                  href={`/careers/${role.slug}`}
+                  className="group flex flex-col gap-3 p-6 transition-colors hover:bg-muted/50 sm:flex-row sm:items-center sm:justify-between"
+                >
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground transition-colors group-hover:text-green-700">
+                      {role.title}
+                    </h3>
+                    <p className="mt-1 flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="inline-flex items-center gap-1">
+                        <MapPin className="size-3.5" />
+                        {role.location}
+                      </span>
+                      <span>·</span>
+                      <span>{role.type}</span>
+                    </p>
+                    <p className="mt-2 max-w-xl text-sm text-muted-foreground">
+                      {role.summary}
+                    </p>
+                  </div>
+                  <span className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl border border-border bg-background px-5 text-sm font-medium transition-colors group-hover:border-green-300 group-hover:text-green-700">
                     Apply
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </Button>
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
