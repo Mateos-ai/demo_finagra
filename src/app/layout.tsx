@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const display = Bricolage_Grotesque({
+// Satoshi (Fontshare) — self-hosted variable font, used for headings + body.
+const satoshi = localFont({
+  src: "./fonts/Satoshi-Variable.woff2",
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const body = Hanken_Grotesk({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "300 900",
+  display: "swap",
 });
 
 const mono = JetBrains_Mono({
@@ -54,7 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
+      className={`${satoshi.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SiteHeader />

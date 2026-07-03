@@ -1,23 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-/**
- * Finagra wordmark. The mark is a growth glyph — three rising strokes
- * (green · earth · sky) evoking a field taking off.
- * Swap <LogoMark> for an uploaded /public asset when brand art is ready.
- */
-export function LogoMark({ className }: { className?: string }) {
+export function LogoMark({
+  className,
+  size = 30,
+}: {
+  className?: string;
+  size?: number;
+}) {
   return (
-    <svg
-      viewBox="0 0 32 32"
-      className={cn("h-7 w-7", className)}
-      aria-hidden="true"
-      fill="none"
-    >
-      <rect x="4" y="17" width="6" height="11" rx="3" fill="var(--earth-500)" />
-      <rect x="13" y="10" width="6" height="18" rx="3" fill="var(--green-600)" />
-      <rect x="22" y="4" width="6" height="24" rx="3" fill="var(--sky-500)" />
-    </svg>
+    <Image
+      src="/images/logo.png"
+      alt=""
+      width={size}
+      height={size}
+      className={cn("h-[30px] w-[30px]", className)}
+      priority
+    />
   );
 }
 

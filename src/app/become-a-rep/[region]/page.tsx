@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container, Section, Eyebrow, SectionHeading } from "@/components/section";
 import { StatGrid } from "@/components/stat-grid";
+import { Photo } from "@/components/photo";
 import { Contact } from "@/components/sections/contact";
 import { becomeRep, repRegions, type RepRegionSlug } from "@/content/site";
 
@@ -42,14 +43,23 @@ export default async function BecomeRepRegionPage({
     <>
       <section className="bg-field-soft">
         <Container className="py-20 md:py-28">
-          <div className="max-w-3xl">
-            <Eyebrow>Part of our team · {data.flag} {data.country}</Eyebrow>
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-[3.2rem] md:leading-[1.05]">
-              {data.headline}
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              {data.definition}
-            </p>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="max-w-xl">
+              <Eyebrow>Part of our team · {data.flag} {data.country}</Eyebrow>
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-[3.2rem] md:leading-[1.05]">
+                {data.headline}
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                {data.definition}
+              </p>
+            </div>
+            <Photo
+              src={data.image}
+              alt={`Farming in ${data.country}`}
+              aspect="aspect-[4/3]"
+              priority
+              sizes="(min-width: 1024px) 45vw, 100vw"
+            />
           </div>
 
           <div

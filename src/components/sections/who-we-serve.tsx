@@ -1,5 +1,5 @@
 import { Container, Section, SectionHeading } from "@/components/section";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { Photo } from "@/components/photo";
 import { whoWeServe } from "@/content/site";
 
 export function WhoWeServe() {
@@ -7,8 +7,9 @@ export function WhoWeServe() {
     <Section id="who-we-serve">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <ImagePlaceholder
-            label="Farmers & landowners in the field"
+          <Photo
+            src="/images/who-we-serve.jpg"
+            alt="A farmer tending high-value crops in the field"
             aspect="aspect-[4/3]"
             className="order-last lg:order-first"
           />

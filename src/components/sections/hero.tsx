@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container, Eyebrow } from "@/components/section";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { Photo } from "@/components/photo";
 import { Button } from "@/components/ui/button";
 import { hero } from "@/content/site";
 
@@ -37,9 +37,12 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <ImagePlaceholder
-            label="Hero — climate-smart farm photography"
+          <Photo
+            src="/images/hero-corn-farmer.jpg"
+            alt="A rural entrepreneur holding a fresh harvest of maize in the field"
             aspect="aspect-[4/5]"
+            priority
+            sizes="(min-width: 1024px) 45vw, 100vw"
             className="shadow-xl shadow-green-900/5"
           />
         </div>

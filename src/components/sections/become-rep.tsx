@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Container, Section } from "@/components/section";
 import { StatGrid } from "@/components/stat-grid";
@@ -9,13 +10,22 @@ export function BecomeRep() {
   return (
     <Section id="become-a-rep" className="py-20 md:py-28">
       <Container>
-        <div
-          className="overflow-hidden rounded-3xl px-8 py-14 md:px-14 md:py-16"
-          style={{
-            background:
-              "linear-gradient(150deg, var(--green-800) 0%, var(--green-900) 100%)",
-          }}
-        >
+        <div className="relative overflow-hidden rounded-3xl px-8 py-14 md:px-14 md:py-16">
+          <Image
+            src="/images/rep-entrepreneur.jpg"
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 1100px, 100vw"
+            className="object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(150deg, color-mix(in oklch, var(--green-800) 92%, transparent) 0%, color-mix(in oklch, var(--green-900) 96%, transparent) 100%)",
+            }}
+          />
+          <div className="relative">
           <p className="eyebrow mb-4 !text-green-200">{becomeRep.eyebrow}</p>
           <h2 className="max-w-3xl text-3xl font-bold text-white md:text-[2.5rem] md:leading-[1.1]">
             {becomeRep.title}
@@ -55,6 +65,7 @@ export function BecomeRep() {
                 </Link>
               </Button>
             ))}
+          </div>
           </div>
         </div>
       </Container>

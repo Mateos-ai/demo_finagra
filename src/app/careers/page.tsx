@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { Container, Section, Eyebrow } from "@/components/section";
+import { Photo } from "@/components/photo";
 import { Button } from "@/components/ui/button";
 import { careers } from "@/content/site";
 
@@ -15,19 +16,26 @@ export default function CareersPage() {
   return (
     <>
       <section className="bg-field-soft">
-        <Container className="py-20 md:py-28">
-          <div className="max-w-3xl">
+        <Container className="grid items-center gap-12 py-20 md:py-28 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="max-w-xl">
             <Eyebrow>{careers.hero.eyebrow}</Eyebrow>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-[3.2rem] md:leading-[1.05]">
               {careers.hero.title}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               {careers.hero.subtitle}
             </p>
             <Button asChild className="mt-8 h-11 rounded-xl px-6">
               <Link href="#open-roles">See open roles ↓</Link>
             </Button>
           </div>
+          <Photo
+            src="/images/careers.jpg"
+            alt="A team working together across terraced farmland"
+            aspect="aspect-[4/3]"
+            priority
+            sizes="(min-width: 1024px) 45vw, 100vw"
+          />
         </Container>
       </section>
 

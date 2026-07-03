@@ -137,6 +137,7 @@ export const repRegions = {
     slug: "kenya",
     country: "Kenya",
     flag: "🇰🇪",
+    image: "/images/rep-kenya.jpg",
     headline: "Become a Finagra REP in Kenya",
     definition:
       "Rural Entrepreneur Partners are farmers with 5+ years of hands-on experience in high-value crops who manage Finagra-financed agricultural operations.",
@@ -152,6 +153,7 @@ export const repRegions = {
     slug: "india",
     country: "India",
     flag: "🇮🇳",
+    image: "/images/rep-india.jpg",
     headline: "Become a Finagra REP in India",
     definition:
       "Rural Entrepreneur Partners are experienced local farmers and emerging leaders who manage Finagra-financed agricultural operations at scale.",

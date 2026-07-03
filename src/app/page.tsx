@@ -5,6 +5,7 @@ import { WhoWeServe } from "@/components/sections/who-we-serve";
 import { BecomeRep } from "@/components/sections/become-rep";
 import { Faq } from "@/components/sections/faq";
 import { Contact } from "@/components/sections/contact";
+import { PhotoBand } from "@/components/photo-band";
 import { Container } from "@/components/section";
 import { thesis } from "@/content/site";
 
@@ -26,6 +27,14 @@ export default function Home() {
       <Solution />
       <HowItWorks />
       <WhoWeServe />
+
+      <PhotoBand
+        src="/images/field-aerial.jpg"
+        alt="Aerial view of a combine harvester working a productive field"
+        eyebrow="Empower Rural Growth"
+        statement="Turning underperforming farmland into productive, high-yield operations — led by local entrepreneurs."
+      />
+
       <BecomeRep />
       <Faq />
       <Contact />
