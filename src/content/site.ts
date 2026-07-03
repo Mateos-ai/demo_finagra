@@ -18,18 +18,19 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  eyebrow: "Empower Rural Growth",
-  title: "Building scalable, climate-smart farms that strengthen local economies.",
+  title: "Building the future of rural agriculture.",
   subtitle:
     "We give rural entrepreneurs and farmers the tools to turn conventional farming into high-yield operations, creating stable income and stronger rural economies.",
-  primaryCta: { label: "Work with us", href: "#contact" },
-  secondaryCta: { label: "scroll to read more", href: "#solution" },
+  primaryCta: { label: "Join Us", href: "#contact" },
+  secondaryCta: { label: "scroll to read more", href: "#model" },
 };
 
 export const thesis = {
   eyebrow: "The model",
-  title: "Capital, technology, and local entrepreneurs, combined.",
-  body: "We bring capital, technology, and structured management to rural communities, turning underperforming farmland into productive farms led by local entrepreneurs.",
+  paragraphs: [
+    "We bring capital, technology, and structured management to rural communities.",
+    "Turning underperforming farmland into productive farms, led by local entrepreneurs.",
+  ],
 };
 
 export const solution = {
@@ -56,24 +57,24 @@ export const solution = {
 
 export const howItWorks = {
   eyebrow: "How It Works",
-  title: "How Finagra works with both farmers and entrepreneurs.",
+  title: "We support both farmers and entrepreneurs.",
   intro:
     "We support the two groups who drive rural agriculture: entrepreneurs who run modern farms, and farmers who provide the land and local knowledge.",
   steps: [
     {
       step: "01",
       title: "Build Productive Foundations",
-      body: "Landowners get guaranteed income and healthier soil. REPs get the equipment, seeds, and irrigation to farm efficiently.",
+      body: "Landowners get guaranteed income and healthier soil. Entrepreneurs get the equipment, seeds, and irrigation to farm efficiently.",
     },
     {
       step: "02",
       title: "Guide Modern Practices",
-      body: "REPs get expert agronomy, precision tools, and training. Farmers get better, more climate-resilient harvests.",
+      body: "Entrepreneurs get expert agronomy, precision tools, and training. Farmers get better, more climate-resilient harvests.",
     },
     {
       step: "03",
       title: "Share Long-Term Benefits",
-      body: "At harvest, REPs earn from management, landowners receive guaranteed returns, and the community gains from local investment.",
+      body: "At harvest, entrepreneurs earn from management, landowners receive guaranteed returns, and the community gains from local investment.",
     },
   ],
   closing: "Everyone shares in the upside, not just one group.",
@@ -100,8 +101,25 @@ export const whoWeServe = {
 
 export const becomeRep = {
   eyebrow: "Become a REP",
-  title: "We invest 100% of production costs. You manage the fields. We share the profit.",
+  title: "A partnership built to share the upside.",
   body: "Local leaders who manage Finagra-financed farms. We look for ambition, integrity, and readiness to lead, not just farming experience.",
+  model: [
+    {
+      icon: "coins",
+      title: "We invest 100%",
+      body: "of production costs, with zero upfront from you.",
+    },
+    {
+      icon: "sprout",
+      title: "You manage the fields",
+      body: "running day-to-day operations on the ground.",
+    },
+    {
+      icon: "handshake",
+      title: "We share the profit",
+      body: "25% of net profit to you, every season.",
+    },
+  ],
   stats: [
     { value: "100%", label: "of production costs financed" },
     { value: "$0", label: "upfront investment required" },
@@ -212,6 +230,13 @@ export const contact = {
   eyebrow: "Get in touch",
   title: "Work with us.",
   body: "Joining our network or partnering with us? Reach out, or sign up for news and updates.",
+  interests: [
+    "Become a Representative",
+    "Partner with us",
+    "Farmer or Landowner",
+    "Careers",
+    "General inquiry",
+  ],
 };
 
 export const careers = {

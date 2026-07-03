@@ -38,7 +38,7 @@ export function PhotoBand({
                 {eyebrow}
               </p>
             ) : null}
-            <p className="text-2xl font-bold leading-snug text-white md:text-4xl md:leading-[1.15]">
+            <p className="text-3xl font-bold leading-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.35)] md:text-5xl md:leading-[1.12]">
               {statement}
             </p>
           </div>

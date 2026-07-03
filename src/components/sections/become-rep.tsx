@@ -1,10 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Coins, Sprout, Handshake, type LucideIcon } from "lucide-react";
 import { Container, Section } from "@/components/section";
-import { StatGrid } from "@/components/stat-grid";
 import { Button } from "@/components/ui/button";
 import { becomeRep } from "@/content/site";
+
+const icons: Record<string, LucideIcon> = {
+  coins: Coins,
+  sprout: Sprout,
+  handshake: Handshake,
+};
 
 export function BecomeRep() {
   return (
@@ -26,46 +31,64 @@ export function BecomeRep() {
             }}
           />
           <div className="relative">
-          <p className="eyebrow mb-4 !text-green-200">{becomeRep.eyebrow}</p>
-          <h2 className="max-w-3xl text-3xl font-bold text-white md:text-[2.5rem] md:leading-[1.1]">
-            {becomeRep.title}
-          </h2>
-          <p className="mt-5 max-w-2xl leading-relaxed text-green-100/80">
-            {becomeRep.body}
-          </p>
+            <p className="eyebrow mb-4 !text-green-200">{becomeRep.eyebrow}</p>
+            <h2 className="max-w-3xl text-3xl font-bold text-white md:text-[2.5rem] md:leading-[1.1]">
+              {becomeRep.title}
+            </h2>
+            <p className="mt-5 max-w-2xl leading-relaxed text-green-100/80">
+              {becomeRep.body}
+            </p>
 
-          <StatGrid
-            stats={becomeRep.stats}
-            className="mt-12 border-t border-white/15 pt-10"
-          />
+            {/* The deal, broken into three steps */}
+            <div className="mt-12 grid gap-4 md:grid-cols-3">
+              {becomeRep.model.map((step) => {
+                const Icon = icons[step.icon] ?? Coins;
+                return (
+                  <div
+                    key={step.title}
+                    className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm"
+                  >
+                    <div className="flex size-11 items-center justify-center rounded-xl bg-white/10 text-green-100">
+                      <Icon className="size-5" />
+                    </div>
+                    <h3 className="mt-4 text-lg font-bold text-white">
+                      {step.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-green-100/75">
+                      {step.body}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
 
-          <div className="mt-12 grid gap-x-8 gap-y-6 border-t border-white/15 pt-10 sm:grid-cols-2">
-            {becomeRep.receives.map((item) => (
-              <div key={item.title}>
-                <h3 className="text-base font-semibold text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-green-100/75">
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
+            <div className="mt-12 grid gap-x-8 gap-y-6 border-t border-white/15 pt-10 sm:grid-cols-2">
+              {becomeRep.receives.map((item) => (
+                <div key={item.title}>
+                  <h3 className="text-base font-semibold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-green-100/75">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-          <div className="mt-11 flex flex-wrap gap-3">
-            {becomeRep.regions.map((region) => (
-              <Button
-                key={region.href}
-                asChild
-                className="h-11 rounded-xl bg-white px-6 text-[0.95rem] text-green-900 hover:bg-green-50"
-              >
-                <Link href={region.href}>
-                  Become a REP in {region.label}
-                  <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-            ))}
-          </div>
+            <div className="mt-11 flex flex-wrap gap-3">
+              {becomeRep.regions.map((region) => (
+                <Button
+                  key={region.href}
+                  asChild
+                  className="h-11 rounded-xl bg-white px-6 text-[0.95rem] text-green-900 hover:bg-green-50"
+                >
+                  <Link href={region.href}>
+                    Become a REP in {region.label}
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </Container>

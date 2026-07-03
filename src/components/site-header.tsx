@@ -42,7 +42,7 @@ export function SiteHeader() {
               asChild
               className="hidden h-9 px-4 text-sm md:inline-flex"
             >
-              <Link href="#contact">Work with us</Link>
+              <Link href="#contact">Join Us</Link>
             </Button>
 
             <Sheet open={open} onOpenChange={setOpen}>
@@ -75,7 +75,7 @@ export function SiteHeader() {
                   ))}
                   <SheetClose asChild>
                     <Button asChild className="mt-3 h-10">
-                      <Link href="#contact">Work with us</Link>
+                      <Link href="#contact">Join Us</Link>
                     </Button>
                   </SheetClose>
                 </nav>

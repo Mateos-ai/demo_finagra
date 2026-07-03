@@ -14,13 +14,21 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* Thesis strip */}
-      <section className="border-y border-border bg-background py-16 md:py-20">
-        <Container className="max-w-4xl text-center">
+      {/* Thesis strip — THE MODEL */}
+      <section
+        id="model"
+        className="scroll-mt-20 border-y border-border bg-background py-16 md:py-20"
+      >
+        <Container className="max-w-4xl space-y-4 text-center">
           <p className="eyebrow mb-4 justify-center">{thesis.eyebrow}</p>
-          <p className="text-2xl font-medium leading-snug text-foreground md:text-[1.9rem] md:leading-[1.25]">
-            {thesis.body}
-          </p>
+          {thesis.paragraphs.map((para, i) => (
+            <p
+              key={i}
+              className="text-2xl font-medium leading-snug text-foreground md:text-[1.9rem] md:leading-[1.25]"
+            >
+              {para}
+            </p>
+          ))}
         </Container>
       </section>
 
@@ -31,7 +39,6 @@ export default function Home() {
       <PhotoBand
         src="/images/field-aerial.jpg"
         alt="Aerial view of a combine harvester working a productive field"
-        eyebrow="Empower Rural Growth"
         statement="Turning underperforming farmland into productive, high-yield operations, led by local entrepreneurs."
       />
 

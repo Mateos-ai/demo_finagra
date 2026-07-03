@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowDown } from "lucide-react";
-import { Container, Eyebrow } from "@/components/section";
+import { Container } from "@/components/section";
 import { Photo } from "@/components/photo";
 import { Button } from "@/components/ui/button";
 import { hero } from "@/content/site";
@@ -10,7 +10,6 @@ export function Hero() {
     <section className="relative overflow-hidden bg-field-soft">
       <Container className="py-20 md:py-24">
         <div className="max-w-3xl">
-          <Eyebrow>{hero.eyebrow}</Eyebrow>
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-[3.4rem] md:leading-[1.05]">
             {hero.title}
           </h1>
